@@ -1,0 +1,9 @@
+(executable
+  (name handler)
+  (libraries lwt aws-lambda)
+  (flags (:standard -ccopt -static -ccopt -O3))
+  (preprocess (pps lwt_ppx)))
+
+(alias
+ (name DEFAULT)
+ (deps handler.exe))

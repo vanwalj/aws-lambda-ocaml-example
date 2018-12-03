@@ -1,0 +1,23 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  Lambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: "./dist"
+      MemorySize: 128
+      Timeout: 10
+      Handler: bootstrap
+      Description: "The main API endpoint"
+      Runtime: provided
+      Events:
+        GetRequest:
+          Type: Api
+          Properties:
+            Path: /
+            Method: get
+        PostRequest:
+          Type: Api
+          Properties:
+            Path: /
+            Method: post
